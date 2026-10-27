@@ -7,12 +7,12 @@ import userRouter from "./router/userRouter.js"
 dotenv.config()
 
 const app = express()
-
+const PORT = process.argv[2] || 9091
 const DBUSER = process.env.DBUSER
 const DBPASSWORD = process.env.DBPASSWORD
 
-console.log(DBUSER)
-console.log(DBPASSWORD)
+// console.log(DBUSER)
+// console.log(DBPASSWORD)
 
 app.use(express.json())
 app.use(cors())
@@ -21,7 +21,5 @@ app.use("/api/products", productRouter)
 app.use("/api/users", userRouter)
 
 
-
-
-app.listen(9091, () => console.log("Server Started"))
+app.listen(PORT, () => console.log(`Server Started on PORT ${PORT}`))
 
